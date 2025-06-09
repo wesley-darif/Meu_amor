@@ -1,0 +1,294 @@
+/* Estilo base da página */
+body {
+    background-color: #fff0f6;
+    font-family: 'Georgia', serif;
+    color: #8b0000;
+    text-align: center;
+    padding: 20px;
+    background-image: url('https://www.transparenttextures.com/patterns/heart-wallpaper.png');
+    background-repeat: repeat;
+    background-size: auto;
+    /* Para suavizar o texto */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Título principal */
+h1 {
+    font-size: 3em;
+    color: #ff3366;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 2px #b2224a;
+}
+
+.fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
+
+.fade-in.mostrar {
+    opacity: 1;
+}
+
+/* Galeria de imagens */
+#galeria img {
+    width: 220px;
+    margin: 10px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #ff99cc;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+#galeria img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px #ff6699;
+}
+
+/* Carta de amor */
+#carta {
+    background-color: #ffe6f0;
+    padding: 25px;
+    border-radius: 15px;
+    margin: 25px auto;
+    max-width: 700px;
+    font-size: 1.3em;
+    line-height: 1.6;
+    box-shadow: 0 0 10px #ffc0cb;
+}
+
+/* Botões gerais */
+button {
+    background-color: #ff3366;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(255, 51, 102, 0.4);
+}
+button:hover {
+    background-color: #ff6699;
+    box-shadow: 0 6px 12px rgba(255, 102, 153, 0.6);
+}
+
+/* Imagem surpresa */
+#surpresa img {
+    width: 300px;
+    margin-top: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 15px #ff6699;
+}
+
+/* Elemento áudio */
+audio {
+    margin-top: 15px;
+}
+
+/* Slider de fotos */
+#slider {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #ff99cc;
+    position: relative;
+}
+
+#slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: opacity 0.5s ease;
+    display: block;
+}
+
+/* Controles do slider */
+#controles {
+    margin-top: 10px;
+}
+
+#controles button {
+    background-color: #ff3366;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 1em;
+    cursor: pointer;
+    margin: 0 10px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(255, 51, 102, 0.4);
+}
+
+#controles button:hover {
+    background-color: #ff6699;
+    box-shadow: 0 6px 12px rgba(255, 102, 153, 0.6);
+}
+
+/* Tela de senha */
+#tela-senha {
+    background-color: #ffe6f0;
+    padding: 25px;
+    border-radius: 15px;
+    margin: 50px auto;
+    max-width: 400px;
+    box-shadow: 0 0 15px #ff99cc;
+    text-align: center;
+}
+
+#tela-senha input {
+    padding: 10px;
+    width: 80%;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+#tela-senha button {
+    background-color: #ff3366;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(255, 51, 102, 0.4);
+}
+
+#tela-senha button:hover {
+    background-color: #ff6699;
+    box-shadow: 0 6px 12px rgba(255, 102, 153, 0.6);
+}
+
+/* Menu de navegação */
+#menu {
+    background-color: #ff3366;
+    padding: 10px 0;
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(255, 51, 102, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+#menu a {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+#menu a:hover {
+    color: #ffe6f0;
+}
+
+/* Linha do tempo */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 10px 20px;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: #ff3366;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+}
+
+.timeline-item {
+    padding: 20px;
+    position: relative;
+    background-color: #ffe6f0;
+    border-radius: 15px;
+    width: 50%;
+    box-shadow: 0 0 15px #ff99cc;
+    margin: 20px 0;
+    transition: transform 0.3s ease;
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+}
+
+.timeline-item:hover {
+    transform: scale(1.03);
+}
+
+.timeline-item h2 {
+    color: #ff3366;
+    font-size: 1.5em;
+}
+
+.timeline-item p {
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+/* Botão da jornada */
+.botao-jornada {
+    display: inline-block;
+    background-color: #ff3366;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(255, 51, 102, 0.4);
+}
+
+.botao-quiz {
+    display: inline-block;
+    background-color: #ff3366;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(255, 51, 102, 0.4);
+}
+
+.botao-jornada:hover {
+    background-color: #ff6699;
+    box-shadow: 0 6px 12px rgba(255, 102, 153, 0.6);
+}
+
+/* Botão abrir carta */
+#botao-carta {
+    background-color: #ff3366;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(255, 51, 102, 0.4);
+}
+
+#botao-carta:hover {
+    background-color: #ff6699;
+    box-shadow: 0 6px 12px rgba(255, 102, 153, 0.6);
+}
+

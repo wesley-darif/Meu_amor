@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jogo da Memória ❤️</title>
+  <style>
+    body {
+
+    
+
+      font-family: 'Arial', sans-serif;
+      background-color: #ffe6ec;
+      text-align: center;
+      padding: 20px;
+    }
+    
+    h1 {
+      font-size: 3em;
+      color: #e60073;
+    }
+
+    
+
+    .memory-game {
+      width: 460px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      perspective: 1000px;
+    }
+
+    .memory-card {
+      width: 100px;
+      height: 100px;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.6s;
+      cursor: pointer;
+    }
+
+    .memory-card.flip {
+      transform: rotateY(180deg);
+    }
+
+    .memory-card img {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      border-radius: 10px;
+      backface-visibility: hidden;
+    }
+
+    .front-face {
+      transform: rotateY(180deg);
+    }
+  </style>
+</head>
+<body>
+  <h1>Jogo da Memória ❤️</h1>
+  <p>Encontre os pares das nossas fotos e relembre nossos momentos especiais! 🌟</p>
+  
+  <div class="memory-game">
+    <div class="memory-card" data-framework="h">
+      <img class="front-face" src="img/foto8.jpg" alt="Foto 8" />
+      <img class="back-face" src="img/verso.jpg" alt="Verso" />
+    </div>
+    <div class="memory-card" data-framework="a">
+        <img class="face front-face" src="img/foto1.jpg" alt="Foto 1" />
+        <img class="face back-face" src="img/verso.jpg" alt="Verso" />
+    </div>
+    <div class="memory-card" data-framework="b">
+      <img class="front-face" src="img/foto2.jpg" alt="Foto 2" />
+      <img class="back-face" src="img/verso.jpg" alt="Verso" />
+    </div>
+    <div class="memory-card" data-framework="a">
+      <img class="front-face" src="img/foto1.jpg" alt="Foto 1" />
+      <img class="back-face" src="img/verso.jpg" alt="Verso" />
+    </div>
+    <div class="memory-card" data-framework="c">
+      <img class="front-face" src="img/foto3.jpg" alt="Foto 3" />
+      <img class="back-face" src="img/verso.jpg" alt="Verso" />
+    </div>
+    <div class="memory-card" data-framework="d">
+      <img class="front-face" src="img/foto4.jpg" alt="Foto 4" />
+      <img class="back-face" src="img/verso.jpg" alt="Verso" />
+    </div>
+    <div class="memory-card" data-framework="b">
+      <img class="front-face" src="img/foto2.jpg" alt="Foto 2" />
+      <img class="back-face" src="img/verso.jpg" alt="Verso" />
+    </div>
+    <div class="memory-card" data-framework="e">
+      <img class="front-face" src="img/foto5.jpg" alt="Foto 5" />
+      <img class="back-face" src="img/verso.jpg" alt="Verso" />
+    </div>
+    <div class="memory-card" data-framework="c">
+      <img class="front-face" src="img/foto3.jpg" alt="Foto 3" />
+      <img class="back-face" src="img/verso.jpg" alt="Verso" />
+    </div>
+    <div class="memory-card" data-framework="e">
+      <img class="front-face" src="img/foto5.jpg" alt="Foto 5" />
+      <img class="back-face" src="img/verso.jpg" alt="Verso" />
+    </div>
+    <div class="memory-card" data-framework="g">
+      <img class="front-face" src="img/foto7.jpg" alt="Foto 7" />
+      <img class="back-face" src="img/verso.jpg" alt="Verso" />
+    </div>
+    <div class="memory-card" data-framework="f">
+      <img class="front-face" src="img/foto6.jpg" alt="Foto 6" />
+      <img class="back-face" src="img/verso.jpg" alt="Verso" />
+    </div>
+    <div class="memory-card" data-framework="f">
+      <img class="front-face" src="img/foto6.jpg" alt="Foto 6" />
+      <img class="back-face" src="img/verso.jpg" alt="Verso" />
+    </div>
+    <div class="memory-card" data-framework="g">
+      <img class="front-face" src="img/foto7.jpg" alt="Foto 7" />
+      <img class="back-face" src="img/verso.jpg" alt="Verso" />
+    </div>
+    <div class="memory-card" data-framework="h">
+      <img class="front-face" src="img/foto8.jpg" alt="Foto 8" />
+      <img class="back-face" src="img/verso.jpg" alt="Verso" />
+    </div>
+    <div class="memory-card" data-framework="d">
+      <img class="front-face" src="img/foto4.jpg" alt="Foto 4" />
+      <img class="back-face" src="img/verso.jpg" alt="Verso" />
+    </div>
+  </div>
+
+  <script>
+const cards = document.querySelectorAll('.memory-card');
+let hasFlippedCard = false;
+let lockBoard = false;
+let firstCard, secondCard;
+let pairsFound = 0; // ➜ contador de pares encontrados
+const totalPairs = cards.length / 2; // ➜ total de pares no jogo
+
+function flipCard() {
+  if (lockBoard || this === firstCard) return;
+
+  this.classList.add('flip');
+
+  if (!hasFlippedCard) {
+    hasFlippedCard = true;
+    firstCard = this;
+    return;
+  }
+
+  secondCard = this;
+  checkForMatch();
+}
+
+function checkForMatch() {
+  let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
+  isMatch ? disableCards() : unflipCards();
+}
+
+function disableCards() {
+  firstCard.removeEventListener('click', flipCard);
+  secondCard.removeEventListener('click', flipCard);
+
+  pairsFound++; // ➜ incrementa contador de pares encontrados
+
+  // ➜ verifica se todos os pares foram encontrados
+  if (pairsFound === totalPairs) {
+    document.getElementById('mensagem-vitoria').style.display = 'block';
+  }
+
+  resetBoard();
+}
+
+function unflipCards() {
+  lockBoard = true;
+  setTimeout(() => {
+    firstCard.classList.remove('flip');
+    secondCard.classList.remove('flip');
+    resetBoard();
+  }, 1000);
+}
+
+function resetBoard() {
+  [hasFlippedCard, lockBoard] = [false, false];
+  [firstCard, secondCard] = [null, null];
+}
+
+function voltarAoMenu() {
+  // Aqui você define o que acontece quando o botão "Voltar ao Menu" é clicado
+  // Por exemplo: redirecionar para uma página inicial, reiniciar o jogo, etc.
+ location.href = '/index.html'; // caminho absoluto no site
+}
+
+cards.forEach(card => card.addEventListener('click', flipCard));
+  </script>
+
+<div id="mensagem-vitoria" style="display: none; text-align: center; margin-top: 30px;">
+  <h2>🎉 Parabéns! Você encontrou todos os pares! 🎉</h2>
+  <button onclick="voltarAoMenu()" style="padding: 10px 20px; font-size: 16px; margin-top: 10px;">Voltar ao Menu</button>
+</div>
+
+</body>
+</html>

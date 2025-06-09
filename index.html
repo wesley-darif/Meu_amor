@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Feliz Dia dos Namorados, Ana ❤️</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+
+
+    <div id="tela-senha">
+    <h2>Ola, Amor! 🥰</h2>
+    <p>Digite a senha para acessar sua surpresa (Dica: início do namoro): </p>
+    <input type="password" id="input-senha" placeholder="Digite a senha..." />
+    <button onclick="verificarSenha()">Entrar</button>
+    <p id="mensagem-erro" style="color: red;"></p>
+</div>
+
+
+<div id="conteudo-site" style="display: none;">
+
+    <h1>Feliz Dia dos Namorados, Ana! ❤️</h1>
+
+<section id="galeria">
+    <h2>Nossos Momentos Juntos</h2>
+    <div id="slider">
+        <img id="slide-atual" src="foto1.jpg" alt="Foto do casal" />
+    </div>
+    <div id="controles">
+        <button onclick="voltarFoto()">⟵ Anterior</button>
+        <button onclick="proximaFoto()">Próxima ⟶</button>
+    </div>
+</section>
+
+<h1>Minha Carta para Você ❤️</h1>
+
+
+<button id="botao-carta" onclick="abrirCarta()">💌 Abrir minha carta de amor</button>
+
+
+<div id="carta-amor" style="display: none; margin-top: 20px; padding: 20px; background-color: #ffe6f0; border-radius: 15px; box-shadow: 0 0 15px #ff99cc; font-size: 1.2em; line-height: 1.6;">
+    Querida Ana,  
+    <br><br>
+    Desde o momento em que você entrou na minha vida, tudo ficou mais colorido, mais alegre, mais bonito...
+    Cada sorriso seu é uma luz no meu caminho, e cada abraço seu é meu refúgio favorito.  
+    <br><br>
+    Hoje, quero te dizer o quanto sou grato por ter você ao meu lado. Você é meu amor, minha inspiração, meu tudo.  
+    <br><br>
+    Sei que muitas vezes posso não ter sido a pessoa que você esperava, no entanto estou me tornando melhor a cada dia para mostrar para você que sou sua melhor escolha, a qual você nunca vai se arrepender.
+    <br><br>
+    Eu tenho muito orgulho e admiração por você, por ser essa mulher incrível, educada, dócil (Quando não está me agredindo), inteligênte e acima de tudo, a mais linda do mundo.
+    <br><br>
+    A cada dia que se passa eu percebo que você foi a minha melhor escolha, me fascino cada vez mais por seu jeito de ser, seu amor pelos animais, pela arte e objetivos de vida.
+    <br><br>
+    2025 foi muito bom para mim, me trouxe você, tudo que eu mais queria nesse mundo.
+    <br><br>
+    Te amo infinitamente.  
+    <br><br>
+    Com todo o meu amor,  
+    Tufitufi
+</div>
+
+    <div style="text-align: center; margin: 50px;">
+        <a href="quiz.html" class="botao-quiz">Um joguinho ❤️</a>
+    </div>
+
+    <section id="surpresa">
+        <h2>Uma Surpresa Especial</h2>
+        <button onclick="mostrarSurpresa()">Clique aqui, meu amor 🎁</button>
+        <div id="conteudo-surpresa" style="display: none;">
+            <p>Para sempre seu. Te amo! 💖</p>
+            <img src="gif-romantico.gif" alt="Gif romântico" />
+            <div></div>
+            <audio controls autoplay>
+                <source src="a-cera.mp3" type="audio/mpeg">
+                Seu navegador não suporta áudio.
+            </audio>
+        </div>
+    </section>
+    <div style="text-align: center; margin-top: 50px;">
+            <a href="jornada.html" class="botao-jornada">Nossa Jornada ❤️</a>
+        </div>
+    </div>
+   
+    <script src="script.js"></script>
+    
+
+</body>
+</html>
