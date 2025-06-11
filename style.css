@@ -292,3 +292,66 @@ audio {
     box-shadow: 0 6px 12px rgba(255, 102, 153, 0.6);
 }
 
+/* Responsividade para celulares */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+        font-size: 0.95em;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    #galeria img,
+    #surpresa img,
+    #slider {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+
+    #carta {
+        max-width: 100%;
+        padding: 15px;
+        font-size: 1.1em;
+    }
+
+    #tela-senha {
+        width: 100%;
+        max-width: 100%;
+        margin: 20px auto;
+    }
+
+    #tela-senha input {
+        width: 90%;
+    }
+
+    .botao-jornada,
+    .botao-quiz,
+    #botao-carta,
+    #controles button {
+        width: 100%;
+        padding: 12px 0;
+        font-size: 1em;
+        margin-bottom: 10px;
+    }
+
+    #menu a {
+        display: block;
+        margin: 10px 0;
+        font-size: 1em;
+    }
+
+    /* Timeline adaptada */
+    .timeline::after {
+        left: 8px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        left: 0 !important;
+        margin-left: 20px;
+        padding-left: 30px;
+    }
+}
