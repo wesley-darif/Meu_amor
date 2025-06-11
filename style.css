@@ -88,8 +88,9 @@ audio {
 
 /* Slider de fotos */
 #slider {
-    width: 300px;
-    height: 300px;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
     margin: 0 auto;
     overflow: hidden;
     border-radius: 15px;
